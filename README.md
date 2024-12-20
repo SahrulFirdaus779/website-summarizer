@@ -16,10 +16,13 @@ Website Summarizer adalah aplikasi berbasis Python yang digunakan untuk menghasi
    cd website-summarizer
 
 Instal dependensi yang diperlukan:
-# pip install -r requirements.txt
+
+pip install -r requirements.txt
+
 Jalankan aplikasi menggunakan Streamlit:
-# streamlit run app.py
-# Akses aplikasi melalui browser di http://localhost:8501. Masukkan URL website pada input yang disediakan, dan aplikasi akan menghasilkan ringkasan konten.
+streamlit run app.py
+
+Akses aplikasi melalui browser di http://localhost:8501. Masukkan URL website pada input yang disediakan, dan aplikasi akan menghasilkan ringkasan konten.
 
 Dependensi
 * beautifulsoup4: Untuk mem-parsing HTML dan mengambil konten dari website.

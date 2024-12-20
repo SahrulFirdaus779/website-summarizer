@@ -3,6 +3,7 @@ website_summarizer/
 ├── scraper.py             # Modul untuk mengambil konten dari website
 ├── preprocess.py          # Modul untuk preprocessing teks
 ├── summarizer.py          # Modul untuk TF-IDF dan pembuatan ringkasan
+├── file_reader.py         # Modul untuk membaca file PDF, TXT, Word
 ├── app.py                 # Aplikasi Streamlit
 ├── requirements.txt       # File untuk mencantumkan dependensi
 └── README.md              # Dokumentasi singkat
