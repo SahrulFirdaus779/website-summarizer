@@ -60,22 +60,22 @@ def calculate_tfidf(docs):
     
     return vectorizer, tfidf_matrix
 
-# Contoh Penggunaan
-if __name__ == "__main__":
-    # Daftar dokumen
-    texts = [
-        "I love programming in Python",
-        "Python programming is fun",
-        "I enjoy learning new programming languages"
-    ]
+# # Contoh Penggunaan
+# if __name__ == "__main__":
+#     # Daftar dokumen
+#     texts = [
+#         "I love programming in Python",
+#         "Python programming is fun",
+#         "I enjoy learning new programming languages"
+#     ]
     
-    # Preprocessing dokumen
-    preprocessed_texts = [" ".join(preprocess_text(text)) for text in texts]
+#     # Preprocessing dokumen
+#     preprocessed_texts = [" ".join(preprocess_text(text)) for text in texts]
     
-    # Hitung TF-IDF
-    vectorizer, tfidf_matrix = calculate_tfidf(preprocessed_texts)
+#     # Hitung TF-IDF
+#     vectorizer, tfidf_matrix = calculate_tfidf(preprocessed_texts)
     
-    # Tampilkan fitur dan matriks TF-IDF
-    print("Fitur (Kata):", vectorizer.get_feature_names_out())
-    print("Matriks TF-IDF:")
-    print(tfidf_matrix.toarray())
+#     # Tampilkan fitur dan matriks TF-IDF
+#     print("Fitur (Kata):", vectorizer.get_feature_names_out())
+#     print("Matriks TF-IDF:")
+#     print(tfidf_matrix.toarray())

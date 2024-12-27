@@ -15,7 +15,7 @@ import streamlit as st
 st.set_page_config(page_title="saring-X", page_icon="📝", layout="wide")
 
 # Judul Halaman dengan Desain
-st.title("📝 **saring-X**: Aplikasi Ringkasan Cerdas")
+st.title("📝 **saring-X**: Website Summarizer")
 # Deskripsi dengan Markdown yang Lebih Menarik
 st.markdown(
     """
