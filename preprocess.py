@@ -3,44 +3,24 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-
 # Unduh resource NLTK jika belum tersedia
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
-
 def preprocess_text(text, language="english"):
-    """
-    Melakukan preprocessing pada teks.
-    - Tokenisasi
-    - Stopword Removal
-    - Lemmatization
-    
-    Parameter:
-    - text (str): Teks yang akan diproses
-    - language (str): Bahasa teks ("english" atau "indonesian")
-    
-    Return:
-    - list: Token yang telah diproses
-    """
     # Tokenisasi
     tokens = word_tokenize(text.lower())
-    
     # Pilih stopwords sesuai bahasa
     if language == "indonesian":
         stop_words = set(stopwords.words('indonesian'))
     else:
         stop_words = set(stopwords.words('english'))
-    
     # Hapus stop words dan karakter non-alfanumerik
     filtered_tokens = [word for word in tokens if word.isalnum() and word not in stop_words]
-    
     # Lemmatization
     lemmatizer = WordNetLemmatizer()
-    lemmatized_tokens = [lemmatizer.lemmatize(word) for word in filtered_tokens]
-    
+    lemmatized_tokens = [lemmatizer.lemmatize(word) for word in filtered_tokens]    
     return lemmatized_tokens
-
 def calculate_tfidf(docs):
     """
     Menghitung TF-IDF untuk kumpulan dokumen.
@@ -59,6 +39,30 @@ def calculate_tfidf(docs):
     tfidf_matrix = vectorizer.fit_transform(docs)
     
     return vectorizer, tfidf_matrix
+
+
+
+
+
+
+
+
+
+
+
+
+    """
+    Melakukan preprocessing pada teks.
+    - Tokenisasi
+    - Stopword Removal
+    - Lemmatization
+    Parameter:
+    - text (str): Teks yang akan diproses
+    - language (str): Bahasa teks ("english" atau "indonesian")
+    
+    Return:
+    - list: Token yang telah diproses
+    """
 
 # # Contoh Penggunaan
 # if __name__ == "__main__":

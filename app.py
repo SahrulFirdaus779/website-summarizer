@@ -4,16 +4,12 @@ from preprocess import preprocess_text
 from summarizer import calculate_tfidf, summarize_text
 from file_reader import read_pdf, read_txt, read_word
 import nltk
-
 # Unduh resource NLTK jika belum tersedia
 nltk.download('punkt')
 nltk.download('stopwords')
-
 import streamlit as st
-
 # Konfigurasi Halaman
 st.set_page_config(page_title="saring-X", page_icon="📝", layout="wide")
-
 # Judul Halaman dengan Desain
 st.title("📝 **saring-X**: Website Summarizer")
 # Deskripsi dengan Markdown yang Lebih Menarik
@@ -25,16 +21,11 @@ st.markdown(
     yang jelas dan padat dalam bahasa **Indonesia** maupun **Inggris**.
     """
 )
-
 # Menambahkan Call-to-Action Button
 st.button("Mulai Sekarang!", help="Klik untuk memulai merangkum teks Anda!")
-
-
 # Pilihan Input dengan Tab
 tab_url, tab_file = st.tabs(["🌐 URL", "📄 File"])
-
 content = ""
-
 with tab_url:
     st.subheader("📥 Masukkan URL")
     url = st.text_input("Masukkan URL:", placeholder="https://example.com")
@@ -45,7 +36,6 @@ with tab_url:
                 st.error(content)
             else:
                 st.success("Konten berhasil diambil!")
-
 with tab_file:
     st.subheader("📤 Unggah Dokumen")
     uploaded_file = st.file_uploader(
@@ -63,7 +53,6 @@ with tab_file:
             else:
                 st.error("Format file tidak didukung.")
         st.success("File berhasil diproses!")
-
 # Proses dan Ringkasan
 if content:
     st.subheader("🛠️ Proses Teks")
@@ -74,24 +63,18 @@ if content:
         with st.spinner("Memproses teks dan menghitung TF-IDF..."):
             # Preprocessing
             processed_sentences = [" ".join(preprocess_text(sentence)) for sentence in sentences]
-
             # Hitung TF-IDF
             vectorizer, tfidf_matrix = calculate_tfidf(processed_sentences)
-
         st.success("Proses selesai!")
-
         # Pilihan jumlah kalimat
         st.subheader("📋 Pengaturan Ringkasan")
         top_n = st.slider("Pilih jumlah kalimat untuk ringkasan:", min_value=1, max_value=10, value=3)
-        
         # Buat Ringkasan
         summary = summarize_text(sentences, tfidf_matrix, top_n=top_n)
-
         # Tampilkan ringkasan
         st.subheader("📖 Ringkasan:")
         st.markdown(f"**Jumlah Kalimat:** {top_n}")
         st.write(summary)
-
         # Tombol untuk mengunduh hasil
         st.download_button(
             label="💾 Unduh Ringkasan",
